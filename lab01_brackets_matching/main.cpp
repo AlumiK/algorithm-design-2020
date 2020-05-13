@@ -33,7 +33,7 @@ bool judge(const std::string &str) {
                 return false;
             }
             stack.push(priority);
-        } else {  // 当前字符右括号时
+        } else {  // 当前字符为右括号时
             if (stack.empty() || stack.top() != priority - 4) {  // 检验左右括号是否匹配
                 return false;
             }
