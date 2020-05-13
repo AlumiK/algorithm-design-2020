@@ -1,0 +1,13 @@
+cmake_minimum_required(VERSION 3.16)
+project(algorithm_design_2020)
+
+add_subdirectory(${PROJECT_SOURCE_DIR}/lab01_brackets_matching)
+add_subdirectory(${PROJECT_SOURCE_DIR}/lab02_count_smaller_numbers)
+add_subdirectory(${PROJECT_SOURCE_DIR}/lab03_find_majority_number)
+add_subdirectory(${PROJECT_SOURCE_DIR}/lab04_interval_scheduling)
+add_subdirectory(${PROJECT_SOURCE_DIR}/lab05_cashiers_algorithm)
+add_subdirectory(${PROJECT_SOURCE_DIR}/lab06_interval_partitioning)
+add_subdirectory(${PROJECT_SOURCE_DIR}/lab07_scheduling_to_minimize_maximum_lateness)
+add_subdirectory(${PROJECT_SOURCE_DIR}/lab08_shortest_path)
+add_subdirectory(${PROJECT_SOURCE_DIR}/lab09_minimal_spanning_tree)
+add_subdirectory(${PROJECT_SOURCE_DIR}/lab10_single_linkage_clustering)

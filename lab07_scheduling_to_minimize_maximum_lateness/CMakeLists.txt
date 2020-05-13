@@ -1,0 +1,6 @@
+cmake_minimum_required(VERSION 3.16)
+project(lab07_scheduling_to_minimize_maximum_lateness)
+
+set(CMAKE_CXX_STANDARD 11)
+
+add_executable(lab07_scheduling_to_minimize_maximum_lateness main.cpp)
