@@ -54,7 +54,7 @@ public:
         sort(begin(edges), end(edges));
         std::vector<double> mstWeights;
         DisjointSets disjointSets(numNodes);
-        for (auto &edge: edges) {
+        for (const auto &edge: edges) {
             const auto parentOfU = disjointSets.find(edge.second.first);
             const auto parentOfV = disjointSets.find(edge.second.second);
             if (parentOfU != parentOfV) {
@@ -79,8 +79,8 @@ int main() {
     int n, k;
     std::cin >> n >> k;
     std::vector<std::pair<int, int>> nodes(n);
-    for (auto i = 0; i < n; ++i) {
-        std::cin >> nodes[i].first >> nodes[i].second;
+    for (auto &node : nodes) {
+        std::cin >> node.first >> node.second;
     }
     Graph graph(n);
     for (auto i = 0; i < n - 1; ++i) {

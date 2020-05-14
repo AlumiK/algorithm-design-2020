@@ -49,11 +49,10 @@ int main() {
     int n;
     std::cin >> n;
     std::vector<int> count(n, 0);
-    std::vector<std::pair<int, int>> vec;  // 关联每个数和它的序号
-    for (auto i = 0; i < n; ++i) {
-        int num;
-        std::cin >> num;
-        vec.emplace_back(num, i);  // 保存每个数和它在原数组中的序号，以免在排序过程中打乱顺序
+    std::vector<std::pair<int, int>> vec(n);  // 关联每个数和它的序号
+    for (auto i = 0; i < n; ++i) { // 保存每个数和它在原数组中的序号，以免在排序过程中打乱顺序
+        std::cin >> vec[i].first;
+        vec[i].second = i;
     }
     mergeSort(vec, count);
     for (const auto i : count) {

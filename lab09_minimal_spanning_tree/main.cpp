@@ -53,7 +53,7 @@ public:
         auto numEdges = 0;
         sort(begin(edges), end(edges));
         DisjointSets disjointSets(numNodes);
-        for (auto &edge: edges) {
+        for (const auto &edge: edges) {
             const auto parentOfU = disjointSets.find(edge.second.first);
             const auto parentOfV = disjointSets.find(edge.second.second);
             if (parentOfU != parentOfV) {

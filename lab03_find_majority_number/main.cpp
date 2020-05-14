@@ -42,8 +42,8 @@ int main() {
     int n;
     std::cin >> n;
     std::vector<int> nums(n);
-    for (auto i = 0; i < n; ++i) {
-        std::cin >> nums[i];
+    for (auto &num : nums) {
+        std::cin >> num;
     }
     auto majorityNumbers = findMajorityNumbers(nums);
     sort(begin(majorityNumbers), end(majorityNumbers));
