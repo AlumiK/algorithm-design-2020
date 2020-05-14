@@ -12,3 +12,4 @@ add_subdirectory(${PROJECT_SOURCE_DIR}/lab07ex1_scheduling_to_minimize_total_lat
 add_subdirectory(${PROJECT_SOURCE_DIR}/lab08_shortest_path)
 add_subdirectory(${PROJECT_SOURCE_DIR}/lab09_minimal_spanning_tree)
 add_subdirectory(${PROJECT_SOURCE_DIR}/lab10_single_linkage_clustering)
+add_subdirectory(${PROJECT_SOURCE_DIR}/lab11_weighted_interval_scheduling)
