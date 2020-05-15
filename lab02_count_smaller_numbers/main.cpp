@@ -8,7 +8,7 @@ void merge(std::vector<std::pair<int, int>> &subVec1, std::vector<std::pair<int,
     while (i < subVec1.size() && j < subVec2.size()) {
         if (subVec1[i].first <= subVec2[j].first) {
             vec.push_back(subVec1[i]);
-            count[subVec1[i].second] += j;  // 利用归并排序进行计数
+            count[subVec1[i].second] += j;
             ++i;
         } else {
             vec.push_back(subVec2[j]);
@@ -17,7 +17,7 @@ void merge(std::vector<std::pair<int, int>> &subVec1, std::vector<std::pair<int,
     }
     for (; i < subVec1.size(); ++i) {
         vec.push_back(subVec1[i]);
-        count[subVec1[i].second] += j;  // 利用归并排序进行计数
+        count[subVec1[i].second] += j;
     }
     for (; j < subVec2.size(); ++j) {
         vec.push_back(subVec2[j]);
@@ -49,8 +49,8 @@ int main() {
     int n;
     std::cin >> n;
     std::vector<int> count(n, 0);
-    std::vector<std::pair<int, int>> vec(n);  // 关联每个数和它的序号
-    for (auto i = 0; i < n; ++i) { // 保存每个数和它在原数组中的序号，以免在排序过程中打乱顺序
+    std::vector<std::pair<int, int>> vec(n);
+    for (auto i = 0; i < n; ++i) {
         std::cin >> vec[i].first;
         vec[i].second = i;
     }

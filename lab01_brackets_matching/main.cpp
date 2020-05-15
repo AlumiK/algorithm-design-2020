@@ -28,19 +28,19 @@ bool judge(const std::string &str) {
     std::stack<int> stack;
     for (const auto c : str) {
         const auto priority = getPriority(c);
-        if (priority < 5) {  // 当当前字符为左括号时
-            if (!stack.empty() && priority > stack.top()) {  // 检验优先级是否匹配
+        if (priority < 5) {
+            if (!stack.empty() && priority > stack.top()) {
                 return false;
             }
             stack.push(priority);
-        } else {  // 当前字符为右括号时
-            if (stack.empty() || stack.top() != priority - 4) {  // 检验左右括号是否匹配
+        } else {
+            if (stack.empty() || stack.top() != priority - 4) {
                 return false;
             }
             stack.pop();
         }
     }
-    return stack.empty();  // 最后如果栈空则匹配，否则不匹配
+    return stack.empty();
 }
 
 int main() {
