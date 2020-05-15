@@ -14,7 +14,7 @@ Formally:
 - Every assignment ![j](https://render.githubusercontent.com/render/math?math=j) has an expected duration ![t_j](https://render.githubusercontent.com/render/math?math=t_j) and a deadline ![d_j](https://render.githubusercontent.com/render/math?math=d_j).
 - If assignment ![j](https://render.githubusercontent.com/render/math?math=j) starts at ![s_j](https://render.githubusercontent.com/render/math?math=s_j), then it finishes at ![f_j=s_j+t_j](https://render.githubusercontent.com/render/math?math=f_j%3Ds_j%2Bt_j).
 - The lateness of an assignment ![j](https://render.githubusercontent.com/render/math?math=j) is defined by ![l_j=\max(0,f_j-d_j)](https://render.githubusercontent.com/render/math?math=l_j%3D%5Cmax(0%2Cf_j-d_j)).
-- You need to arrange the schedule to minimizes the maximum lateness ![L=\max_{j} l_j](https://render.githubusercontent.com/render/math?math=L%3D%5Cmax_%7Bj%7D%20l_j).
+- You need to arrange the schedule to minimize the maximum lateness ![L=\max_{j} l_j](https://render.githubusercontent.com/render/math?math=L%3D%5Cmax_%7Bj%7D%20l_j).
 
 ## Input
 
