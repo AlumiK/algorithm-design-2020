@@ -48,14 +48,14 @@ void mergeSort(std::vector<std::pair<int, int>> &vec, std::vector<int> &count) {
 int main() {
     int n;
     std::cin >> n;
-    std::vector<int> count(n, 0);
+    std::vector<int> counts(n, 0);
     std::vector<std::pair<int, int>> vec(n);
     for (auto i = 0; i < n; ++i) {
         std::cin >> vec[i].first;
         vec[i].second = i;
     }
-    mergeSort(vec, count);
-    for (const auto i : count) {
+    mergeSort(vec, counts);
+    for (const auto i : counts) {
         std::cout << i << std::endl;
     }
     return 0;
