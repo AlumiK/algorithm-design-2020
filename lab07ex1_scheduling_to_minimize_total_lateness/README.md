@@ -41,5 +41,5 @@ Please print the minimum total lateness ![\min L](https://render.githubuserconte
 ### Output
 
 ```text
-2
+4
 ```
