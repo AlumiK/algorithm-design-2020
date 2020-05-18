@@ -1,34 +1,21 @@
 #include <stack>
 #include <iostream>
 
-int getPriority(const char c) {
-    switch (c) {
-        case '<':
-            return 1;
-        case '(':
-            return 2;
-        case '[':
-            return 3;
-        case '{':
-            return 4;
-        case '>':
-            return 5;
-        case ')':
-            return 6;
-        case ']':
-            return 7;
-        case '}':
-            return 8;
-        default:
-            return 9;
+inline int getPriority(const char c) {
+    auto charList = "<([{>)]}";
+    for (auto i = 0; i < 8; ++i) {
+        if (c == charList[i]) {
+            return i;
+        }
     }
+    return 8;
 }
 
-bool judge(const std::string &str) {
+inline bool judge(const std::string &str) {
     std::stack<int> stack;
     for (const auto c : str) {
         const auto priority = getPriority(c);
-        if (priority < 5) {
+        if (priority < 4) {
             if (!stack.empty() && priority > stack.top()) {
                 return false;
             }

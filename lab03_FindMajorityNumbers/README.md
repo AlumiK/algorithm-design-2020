@@ -1,4 +1,4 @@
-# Find Majority Number
+# Find Majority Numbers
 
 ## Description
 

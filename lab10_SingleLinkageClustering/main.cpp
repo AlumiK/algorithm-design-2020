@@ -71,7 +71,7 @@ public:
 };
 
 
-double euclideanDistance(const std::pair<int, int> &u, const std::pair<int, int> &v) {
+inline double euclideanDistance(const std::pair<int, int> &u, const std::pair<int, int> &v) {
     return sqrt(pow((u.first - v.first), 2) + pow((u.second - v.second), 2));
 }
 

@@ -18,7 +18,7 @@ bool operator<(const Job &lhs, const Job &rhs) {
 // A Binary Search based function to find the latest job (before current job) that doesn't conflict with current
 // job. "index" is index of the current job. This function returns -1 if all jobs before index conflict with it.
 // The vector jobs is sorted in increasing order of finish time.
-int binarySearch(const std::vector<Job> &jobs, const int index) {
+inline int binarySearch(const std::vector<Job> &jobs, const int index) {
     // Initialize 'lo' and 'hi' for Binary Search.
     auto lo = 0;
     auto hi = index - 1;

@@ -1,7 +1,7 @@
 #include <vector>
 #include <iostream>
 
-void merge(std::vector<std::pair<int, int>> &subVec1, std::vector<std::pair<int, int>> &subVec2,
+inline void merge(std::vector<std::pair<int, int>> &subVec1, std::vector<std::pair<int, int>> &subVec2,
            std::vector<std::pair<int, int>> &vec, std::vector<int> &count) {
     auto i = 0;
     auto j = 0;
