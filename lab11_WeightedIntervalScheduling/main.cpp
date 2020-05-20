@@ -60,8 +60,9 @@ int main() {
         // Find profit including the current job.
         auto profit = jobs[i].profit;
         const auto latestJob = binarySearch(jobs, i);
-        if (latestJob != -1)
+        if (latestJob != -1) {
             profit += table[latestJob];
+        }
 
         // Store maximum of including and excluding the current job.
         table[i] = std::max(profit, table[i - 1]);
