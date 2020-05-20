@@ -65,7 +65,6 @@ public:
                 disjointSets.merge(parentOfU, parentOfV);
             }
         }
-        sort(begin(mstWeights), end(mstWeights));
         return mstWeights[mstWeights.size() - k + 1];
     }
 };
