@@ -12,7 +12,7 @@ You need to find the maximum profit subset of jobs such that no two jobs in the 
 
 ## Input
 
-The first line is a positive integer `n` (`n` < 1000), indicating how many jobs to be scheduled. Each of the next n lines has 3 integers, which represent the start time, end time and the profit of each job. Time starts at 0.
+The first line is a positive integer `n` (`n` < 1000), indicating how many jobs to be scheduled. Each of the next `n` lines has 3 integers, which represent the start time, end time and the profit of each job. Time starts at 0.
 
 ## Output
 
