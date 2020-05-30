@@ -88,5 +88,5 @@ int main() {
         }
     }
     std::cout << std::fixed << std::setprecision(2) << graph.singleLinkageClustering(k) << std::endl;
-    return 0;
+    return EXIT_SUCCESS;
 }

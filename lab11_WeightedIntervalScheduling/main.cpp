@@ -69,5 +69,5 @@ int main() {
     }
 
     std::cout << table.at(n - 1) << std::endl;
-    return 0;
+    return EXIT_SUCCESS;
 }

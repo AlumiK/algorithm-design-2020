@@ -22,5 +22,5 @@ int main() {
         }
     }
     std::cout << lectureHalls.size() << std::endl;
-    return 0;
+    return EXIT_SUCCESS;
 }

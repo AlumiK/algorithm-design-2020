@@ -50,5 +50,5 @@ int main() {
     for (const auto i : majorityNumbers) {
         std::cout << i << std::endl;
     }
-    return 0;
+    return EXIT_SUCCESS;
 }

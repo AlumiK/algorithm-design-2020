@@ -82,5 +82,5 @@ int main() {
         }
     }
     std::cout << graph.kruskalMST() << std::endl;
-    return 0;
+    return EXIT_SUCCESS;
 }

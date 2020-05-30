@@ -42,5 +42,5 @@ int main() {
             std::cout << "NO" << std::endl;
         }
     }
-    return 0;
+    return EXIT_SUCCESS;
 }

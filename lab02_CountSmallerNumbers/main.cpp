@@ -58,5 +58,5 @@ int main() {
     for (const auto i : counts) {
         std::cout << i << std::endl;
     }
-    return 0;
+    return EXIT_SUCCESS;
 }

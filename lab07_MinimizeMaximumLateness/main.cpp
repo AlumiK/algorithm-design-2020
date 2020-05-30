@@ -17,5 +17,5 @@ int main() {
         maxLateness = std::max(maxLateness, std::max(0, timePassed - assignment.first));
     }
     std::cout << maxLateness << std::endl;
-    return 0;
+    return EXIT_SUCCESS;
 }

@@ -22,5 +22,5 @@ int main() {
         minLateness = std::min(minLateness, lateness);
     } while (next_permutation(begin(assignments), end(assignments)));
     std::cout << minLateness << std::endl;
-    return 0;
+    return EXIT_SUCCESS;
 }
