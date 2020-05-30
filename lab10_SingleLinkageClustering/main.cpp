@@ -4,6 +4,10 @@
 #include <iostream>
 #include <algorithm>
 
+double euclideanDistance(const std::pair<int, int> &u, const std::pair<int, int> &v) {
+    return sqrt(pow((u.first - v.first), 2) + pow((u.second - v.second), 2));
+}
+
 class DisjointSets {
 private:
     std::vector<int> parents;
@@ -44,7 +48,14 @@ private:
     std::vector<std::pair<double, std::pair<int, int>>> edges;
 
 public:
-    explicit Graph(const int numNodes) : numNodes(numNodes) {}
+    explicit Graph(const std::vector<std::pair<int, int>> &nodes) {
+        numNodes = nodes.size();
+        for (auto i = 0; i < numNodes - 1; ++i) {
+            for (auto j = i + 1; j < numNodes; ++j) {
+                addEdge(i, j, euclideanDistance(nodes.at(i), nodes.at(j)));
+            }
+        }
+    }
 
     void addEdge(const int u, const int v, const double weight) {
         edges.push_back({weight, {u, v}});
@@ -69,11 +80,6 @@ public:
     }
 };
 
-
-inline double euclideanDistance(const std::pair<int, int> &u, const std::pair<int, int> &v) {
-    return sqrt(pow((u.first - v.first), 2) + pow((u.second - v.second), 2));
-}
-
 int main() {
     int n, k;
     std::cin >> n >> k;
@@ -81,12 +87,7 @@ int main() {
     for (auto &node : nodes) {
         std::cin >> node.first >> node.second;
     }
-    Graph graph(n);
-    for (auto i = 0; i < n - 1; ++i) {
-        for (auto j = i + 1; j < n; ++j) {
-            graph.addEdge(i, j, euclideanDistance(nodes.at(i), nodes.at(j)));
-        }
-    }
+    Graph graph(nodes);
     std::cout << std::fixed << std::setprecision(2) << graph.singleLinkageClustering(k) << std::endl;
     return EXIT_SUCCESS;
 }

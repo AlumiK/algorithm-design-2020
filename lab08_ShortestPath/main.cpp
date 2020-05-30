@@ -4,7 +4,7 @@
 #include <iostream>
 #include <unordered_map>
 
-#define NUL_NODE -1
+const auto NUL_NODE = -1;
 
 class Node {
 public:

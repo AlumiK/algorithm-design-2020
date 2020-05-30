@@ -35,6 +35,7 @@ std::vector<int> findMajorityNumbers(const std::vector<int> &nums) {
     if (cnt2 > nums.size() / 3) {
         majorityNumbers.push_back(b);
     }
+    sort(begin(majorityNumbers), end(majorityNumbers));
     return majorityNumbers;
 }
 
@@ -45,9 +46,8 @@ int main() {
     for (auto &num : nums) {
         std::cin >> num;
     }
-    auto majorityNumbers = findMajorityNumbers(nums);
-    sort(begin(majorityNumbers), end(majorityNumbers));
-    for (const auto i : majorityNumbers) {
+    const auto ret = findMajorityNumbers(nums);
+    for (const auto i : ret) {
         std::cout << i << std::endl;
     }
     return EXIT_SUCCESS;

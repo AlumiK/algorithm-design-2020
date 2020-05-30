@@ -1,7 +1,7 @@
 #include <vector>
 #include <iostream>
 
-inline void merge(std::vector<std::pair<int, int>> &subVec1, std::vector<std::pair<int, int>> &subVec2,
+void merge(std::vector<std::pair<int, int>> &subVec1, std::vector<std::pair<int, int>> &subVec2,
            std::vector<std::pair<int, int>> &vec, std::vector<int> &count) {
     auto i = 0;
     auto j = 0;
@@ -45,17 +45,22 @@ void mergeSort(std::vector<std::pair<int, int>> &vec, std::vector<int> &count) {
     merge(subVec1, subVec2, vec, count);
 }
 
+std::vector<int> countSmallerNumbers(std::vector<std::pair<int, int>> &numPairs) {
+    std::vector<int> counts(numPairs.size(), 0);
+    mergeSort(numPairs, counts);
+    return counts;
+}
+
 int main() {
     int n;
     std::cin >> n;
-    std::vector<int> counts(n, 0);
-    std::vector<std::pair<int, int>> vec(n);
+    std::vector<std::pair<int, int>> numPairs(n);
     for (auto i = 0; i < n; ++i) {
-        std::cin >> vec.at(i).first;
-        vec.at(i).second = i;
+        std::cin >> numPairs.at(i).first;
+        numPairs.at(i).second = i;
     }
-    mergeSort(vec, counts);
-    for (const auto i : counts) {
+    const auto ret = countSmallerNumbers(numPairs);
+    for (const auto i : ret) {
         std::cout << i << std::endl;
     }
     return EXIT_SUCCESS;

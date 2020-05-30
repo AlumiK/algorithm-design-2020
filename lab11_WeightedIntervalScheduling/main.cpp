@@ -38,25 +38,17 @@ inline int binarySearch(const std::vector<Job> &jobs, const int index) {
     return -1;
 }
 
-// The main function that prints the maximum possible profit from given jobs.
-int main() {
-    int n;
-    std::cin >> n;
-    std::vector<Job> jobs(n);
-    for (auto &job : jobs) {
-        std::cin >> job.start >> job.finish >> job.profit;
-    }
-
+int weightedIntervalScheduling(const std::vector<Job> &jobs) {
     // Sort jobs according to finish time.
     sort(begin(jobs), end(jobs));
 
     // Create an array to store solutions of sub-problems. table[i]
     // stores the profit for jobs till arr[i] (including arr[i]).
-    std::vector<int> table(n);
+    std::vector<int> table(jobs.size());
     table.at(0) = jobs.at(0).profit;
 
     // Fill entries in table using recursive property.
-    for (auto i = 1; i < n; ++i) {
+    for (auto i = 1; i < jobs.size(); ++i) {
         // Find profit including the current job.
         auto profit = jobs.at(i).profit;
         const auto latestJob = binarySearch(jobs, i);
@@ -67,7 +59,17 @@ int main() {
         // Store maximum of including and excluding the current job.
         table.at(i) = std::max(profit, table.at(i - 1));
     }
+    return table.at(jobs.size() - 1);
+}
 
-    std::cout << table.at(n - 1) << std::endl;
+// The main function that prints the maximum possible profit from given jobs.
+int main() {
+    int n;
+    std::cin >> n;
+    std::vector<Job> jobs(n);
+    for (auto &job : jobs) {
+        std::cin >> job.start >> job.finish >> job.profit;
+    }
+    std::cout << weightedIntervalScheduling(jobs) << std::endl;
     return EXIT_SUCCESS;
 }

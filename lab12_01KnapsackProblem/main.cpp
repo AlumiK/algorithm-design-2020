@@ -1,28 +1,31 @@
-#include <iostream>
 #include <vector>
+#include <iostream>
 
-int main() {
-    int W, n;
-    std::cin >> W >> n;
-    std::vector<int> wt(n);
-    std::vector<int> val(n);
-    for (auto i = 0; i < n; ++i) {
-        std::cin >> wt.at(i) >> val.at(i);
-    }
-    std::vector<std::vector<int>> dp(n + 1, std::vector<int>(W + 1));
-    for (auto i = 0; i <= n; ++i) {
-        for (auto w = 0; w <= W; ++w) {
+int knapsackProblem(const std::vector<std::pair<int, int>> &items, const int maxWeight) {
+    std::vector<std::vector<int>> table(items.size() + 1, std::vector<int>(maxWeight + 1));
+    for (auto i = 0; i <= items.size(); ++i) {
+        for (auto w = 0; w <= maxWeight; ++w) {
             if (i == 0 || w == 0) {
-                dp.at(i).at(w) = 0;
-            } else if (wt.at(i - 1) <= w) {
-                dp.at(i).at(w) = std::max(
-                        val.at(i - 1) + dp.at(i - 1).at(w - wt.at(i - 1)),
-                        dp.at(i - 1).at(w));
+                table.at(i).at(w) = 0;
+            } else if (items.at(i - 1).first <= w) {
+                table.at(i).at(w) = std::max(
+                        items.at(i - 1).second + table.at(i - 1).at(w - items.at(i - 1).first),
+                        table.at(i - 1).at(w));
             } else {
-                dp.at(i).at(w) = dp.at(i - 1).at(w);
+                table.at(i).at(w) = table.at(i - 1).at(w);
             }
         }
     }
-    std::cout << dp.at(n).at(W) << std::endl;
+    return table.at(items.size()).at(maxWeight);
+}
+
+int main() {
+    int maxWeight, n;
+    std::cin >> maxWeight >> n;
+    std::vector<std::pair<int, int>> items(n);
+    for (auto i = 0; i < n; ++i) {
+        std::cin >> items.at(i).first >> items.at(i).second;
+    }
+    std::cout << knapsackProblem(items, maxWeight) << std::endl;
     return EXIT_SUCCESS;
 }

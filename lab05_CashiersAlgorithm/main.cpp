@@ -1,21 +1,22 @@
 #include <iostream>
 
-int main() {
-    int amount;
-    auto first = true;
+std::string cashiersAlgorithm(int amount) {
+    std::string ret;
     const int denominations[] = {50, 20, 10, 5, 1};
-    std::cin >> amount;
     for (const auto denomination : denominations) {
         const auto count = amount / denomination;
         if (count > 0) {
-            if (!first) {
-                std::cout << "+";
-            }
-            first = false;
-            std::cout << denomination << "*" << count;
+            ret += std::to_string(denomination) + "*" + std::to_string(count) + "+";
             amount -= denomination * count;
         }
     }
-    std::cout << std::endl;
+    ret.pop_back();
+    return ret;
+}
+
+int main() {
+    int amount;
+    std::cin >> amount;
+    std::cout << cashiersAlgorithm(amount) << std::endl;
     return EXIT_SUCCESS;
 }
