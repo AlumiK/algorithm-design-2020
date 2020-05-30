@@ -18,22 +18,22 @@ public:
     }
 
     int find(const int u) {
-        if (u != parents[u]) {
-            parents[u] = find(parents[u]);
+        if (u != parents.at(u)) {
+            parents.at(u) = find(parents.at(u));
         }
-        return parents[u];
+        return parents.at(u);
     }
 
     void merge(const int u, const int v) {
         const auto parentOfU = find(u);
         const auto parentOfV = find(v);
-        if (ranks[parentOfU] > ranks[parentOfV]) {
-            parents[parentOfV] = parentOfU;
+        if (ranks.at(parentOfU) > ranks.at(parentOfV)) {
+            parents.at(parentOfV) = parentOfU;
         } else {
-            parents[parentOfU] = parentOfV;
+            parents.at(parentOfU) = parentOfV;
         }
-        if (ranks[parentOfU] == ranks[parentOfV]) {
-            ranks[parentOfV]++;
+        if (ranks.at(parentOfU) == ranks.at(parentOfV)) {
+            ranks.at(parentOfV)++;
         }
     }
 };
@@ -65,7 +65,7 @@ public:
                 disjointSets.merge(parentOfU, parentOfV);
             }
         }
-        return mstWeights[mstWeights.size() - k + 1];
+        return mstWeights.at(mstWeights.size() - k + 1);
     }
 };
 
@@ -84,7 +84,7 @@ int main() {
     Graph graph(n);
     for (auto i = 0; i < n - 1; ++i) {
         for (auto j = i + 1; j < n; ++j) {
-            graph.addEdge(i, j, euclideanDistance(nodes[i], nodes[j]));
+            graph.addEdge(i, j, euclideanDistance(nodes.at(i), nodes.at(j)));
         }
     }
     std::cout << std::fixed << std::setprecision(2) << graph.singleLinkageClustering(k) << std::endl;

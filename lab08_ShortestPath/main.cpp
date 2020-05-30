@@ -32,9 +32,9 @@ int main() {
         int a, b, distance;
         std::cin >> a >> b >> distance;
         --a, --b;
-        if (nodes[a].adjacency.find(b) == end(nodes[a].adjacency) || distance < nodes[a].adjacency[b]) {
-            nodes[a].adjacency[b] = distance;
-            nodes[b].adjacency[a] = distance;
+        if (nodes.at(a).adjacency.find(b) == end(nodes.at(a).adjacency) || distance < nodes.at(a).adjacency.at(b)) {
+            nodes.at(a).adjacency[b] = distance;
+            nodes.at(b).adjacency[a] = distance;
         }
     }
 
@@ -45,11 +45,11 @@ int main() {
             break;
         }
         pq.pop();
-        auto &curNode = nodes[curNodeId];
+        auto &curNode = nodes.at(curNodeId);
         curNode.isVisited = true;
         for (const auto &edge : curNode.adjacency) {
             const auto nextNodeId = edge.first;
-            auto &nextNode = nodes[nextNodeId];
+            auto &nextNode = nodes.at(nextNodeId);
             if (!nextNode.isVisited) {
                 const auto newDistance = curNode.distance + edge.second;
                 if (newDistance < nextNode.distance) {
@@ -63,13 +63,13 @@ int main() {
         }
     }
 
-    auto node = &nodes[source];
+    auto node = &nodes.at(source);
     if (node->prevNode == NUL_NODE) {
         std::cout << -1 << std::endl;
     } else {
         std::cout << node->distance << std::endl;
         std::cout << source + 1;
-        for (; node->prevNode != NUL_NODE; node = &nodes[node->prevNode]) {
+        for (; node->prevNode != NUL_NODE; node = &nodes.at(node->prevNode)) {
             std::cout << ' ' << node->prevNode + 1;
         }
         std::cout << std::endl;

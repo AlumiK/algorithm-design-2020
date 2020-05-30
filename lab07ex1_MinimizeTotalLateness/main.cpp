@@ -8,8 +8,8 @@ int main() {
     std::cin >> n;
     std::vector<std::pair<int, std::pair<int, int>>> assignments(n);
     for (auto i = 0; i < n; ++i) {
-        assignments[i].first = i;
-        std::cin >> assignments[i].second.first >> assignments[i].second.second;
+        assignments.at(i).first = i;
+        std::cin >> assignments.at(i).second.first >> assignments.at(i).second.second;
     }
     auto minLateness = std::numeric_limits<int>::max();
     do {

@@ -26,8 +26,8 @@ inline int binarySearch(const std::vector<Job> &jobs, const int index) {
     // Perform binary Search iteratively.
     while (lo <= hi) {
         const auto mid = (lo + hi) / 2;
-        if (jobs[mid].finish <= jobs[index].start) {
-            if (jobs[mid + 1].finish > jobs[index].start) {
+        if (jobs.at(mid).finish <= jobs.at(index).start) {
+            if (jobs.at(mid + 1).finish > jobs.at(index).start) {
                 return mid;
             }
             lo = mid + 1;
@@ -53,21 +53,21 @@ int main() {
     // Create an array to store solutions of sub-problems. table[i]
     // stores the profit for jobs till arr[i] (including arr[i]).
     std::vector<int> table(n);
-    table[0] = jobs[0].profit;
+    table.at(0) = jobs.at(0).profit;
 
     // Fill entries in table using recursive property.
     for (auto i = 1; i < n; ++i) {
         // Find profit including the current job.
-        auto profit = jobs[i].profit;
+        auto profit = jobs.at(i).profit;
         const auto latestJob = binarySearch(jobs, i);
         if (latestJob != -1) {
-            profit += table[latestJob];
+            profit += table.at(latestJob);
         }
 
         // Store maximum of including and excluding the current job.
-        table[i] = std::max(profit, table[i - 1]);
+        table.at(i) = std::max(profit, table.at(i - 1));
     }
 
-    std::cout << table[n - 1] << std::endl;
+    std::cout << table.at(n - 1) << std::endl;
     return 0;
 }

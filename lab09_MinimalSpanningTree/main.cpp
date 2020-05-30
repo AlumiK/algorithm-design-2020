@@ -16,22 +16,22 @@ public:
     }
 
     int find(const int u) {
-        if (u != parents[u]) {
-            parents[u] = find(parents[u]);
+        if (u != parents.at(u)) {
+            parents.at(u) = find(parents.at(u));
         }
-        return parents[u];
+        return parents.at(u);
     }
 
     void merge(const int u, const int v) {
         const auto parentOfU = find(u);
         const auto parentOfV = find(v);
-        if (ranks[parentOfU] > ranks[parentOfV]) {
-            parents[parentOfV] = parentOfU;
+        if (ranks.at(parentOfU) > ranks.at(parentOfV)) {
+            parents.at(parentOfV) = parentOfU;
         } else {
-            parents[parentOfU] = parentOfV;
+            parents.at(parentOfU) = parentOfV;
         }
-        if (ranks[parentOfU] == ranks[parentOfV]) {
-            ranks[parentOfV]++;
+        if (ranks.at(parentOfU) == ranks.at(parentOfV)) {
+            ranks.at(parentOfV)++;
         }
     }
 };
