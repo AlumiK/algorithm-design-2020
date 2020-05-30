@@ -3,7 +3,7 @@
 #include <iostream>
 #include <algorithm>
 
-int intervalPartitioning(const std::vector<std::pair<int, int>> &lectures) {
+int intervalPartitioning(std::vector<std::pair<int, int>> &lectures) {
     sort(begin(lectures), end(lectures));
     std::priority_queue<int, std::vector<int>, std::greater<int>> lectureHalls;
     lectureHalls.push(0);

@@ -2,7 +2,7 @@
 #include <iostream>
 #include <algorithm>
 
-int minimizeMaximumLateness(const std::vector<std::pair<int, int>> &assignments) {
+int minimizeMaximumLateness(std::vector<std::pair<int, int>> &assignments) {
     sort(begin(assignments), end(assignments));
     auto maxLateness = 0;
     auto timePassed = 0;

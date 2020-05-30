@@ -38,7 +38,7 @@ inline int binarySearch(const std::vector<Job> &jobs, const int index) {
     return -1;
 }
 
-int weightedIntervalScheduling(const std::vector<Job> &jobs) {
+int weightedIntervalScheduling(std::vector<Job> &jobs) {
     // Sort jobs according to finish time.
     sort(begin(jobs), end(jobs));
 
