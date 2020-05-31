@@ -2,7 +2,7 @@
 #include <vector>
 #include <iostream>
 
-int getPriority(const char ch) {
+uint8_t getPriority(const char ch) {
     auto chars = "<([{>)]}";
     for (auto i = 0; i < 8; ++i) {
         if (chars[i] == ch) {
@@ -13,7 +13,7 @@ int getPriority(const char ch) {
 }
 
 bool isMatch(const std::string &string) {
-    std::stack<int> stack;
+    std::stack<uint8_t> stack;
     for (const auto ch : string) {
         const auto priority = getPriority(ch);
         if (priority < 4) {

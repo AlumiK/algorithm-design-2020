@@ -4,35 +4,39 @@
 
 std::vector<int> findMajorityNumbers(const std::vector<int> &nums) {
     std::vector<int> majorityNumbers;
-    auto a = 0, b = 0, cnt1 = 0, cnt2 = 0;
+    auto a = 0;
+    auto b = 0;
+    auto countA = 0;
+    auto countB = 0;
     for (const auto num : nums) {
         if (num == a) {
-            ++cnt1;
+            ++countA;
         } else if (num == b) {
-            ++cnt2;
-        } else if (cnt1 == 0) {
+            ++countB;
+        } else if (countA == 0) {
             a = num;
-            ++cnt1;
-        } else if (cnt2 == 0) {
+            ++countA;
+        } else if (countB == 0) {
             b = num;
-            ++cnt2;
+            ++countB;
         } else {
-            --cnt1;
-            --cnt2;
+            --countA;
+            --countB;
         }
     }
-    cnt1 = cnt2 = 0;
-    for (int num : nums) {
+    countA = 0;
+    countB = 0;
+    for (const auto num : nums) {
         if (num == a) {
-            ++cnt1;
+            ++countA;
         } else if (num == b) {
-            ++cnt2;
+            ++countB;
         }
     }
-    if (cnt1 > nums.size() / 3) {
+    if (countA > nums.size() / 3) {
         majorityNumbers.push_back(a);
     }
-    if (cnt2 > nums.size() / 3) {
+    if (countB > nums.size() / 3) {
         majorityNumbers.push_back(b);
     }
     sort(begin(majorityNumbers), end(majorityNumbers));

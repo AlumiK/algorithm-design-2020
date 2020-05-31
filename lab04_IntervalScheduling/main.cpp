@@ -2,7 +2,7 @@
 #include <iostream>
 #include <algorithm>
 
-int intervalScheduling(std::vector<std::pair<long long, long long>> &tasks) {
+int intervalScheduling(std::vector<std::pair<long long int, long long int>> &tasks) {
     sort(begin(tasks), end(tasks));
     auto end = -1ll;
     auto count = 0;
@@ -18,7 +18,7 @@ int intervalScheduling(std::vector<std::pair<long long, long long>> &tasks) {
 int main() {
     int n;
     std::cin >> n;
-    std::vector<std::pair<long long, long long>> tasks(n);
+    std::vector<std::pair<long long int, long long int>> tasks(n);
     for (auto &task : tasks) {
         std::cin >> task.second;
     }
