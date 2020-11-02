@@ -1,3 +1,11 @@
-# NKUCS Algorithm Design (2020 Spring)
+# NKUCS Algorithm Design (Spring 2020)
 
-南开大学软件学院2020学年度春季学期算法导论课程OJ题目。
+Algorithm Design
+
+Nankai University / Spring 2020
+
+## Contents
+
+- Code lab descriptions
+- Online judge (OJ) test cases
+- Example solution code
