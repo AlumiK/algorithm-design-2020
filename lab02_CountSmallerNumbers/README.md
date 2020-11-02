@@ -6,11 +6,11 @@ You are given an integer array `nums`, and you are going to return its count arr
 
 ## Input
 
-The first line of the input is an integer `n`, which indicates how many integers below. Each of the next `n` lines is a non-negative integer and they constitute `nums`.
+The first line of the input is an integer `n`, which indicates how many integers below. Each of the next `n` lines is a non-negative integer which constitutes `nums`.
 
 ## Output
 
-There are `n` lines in the output, and each line is the number of elements smaller than  `nums[i]` to the right of `nums[i]` in `nums`.
+There are `n` lines in the output. Each line is the number of elements smaller than `nums[i]` to the right of `nums[i]` in `nums`.
 
 ## Hint
 
