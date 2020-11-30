@@ -1,6 +1,6 @@
-cmake_minimum_required(VERSION 3.16)
+cmake_minimum_required(VERSION 3.17)
 project(lab03_FindMajorityNumbers)
 
 set(CMAKE_CXX_STANDARD 11)
 
-add_executable(lab03_FindMajorityNumbers main.cpp)
+add_executable(${PROJECT_NAME} main.cpp)
