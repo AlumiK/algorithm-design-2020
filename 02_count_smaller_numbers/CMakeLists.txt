@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.17)
-project(lab03_FindMajorityNumbers)
+project(02_count_smaller_numbers)
 
 set(CMAKE_CXX_STANDARD 11)
 

@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.17)
-project(lab08_ShortestPath)
+project(10_single_linkage_clustering)
 
 set(CMAKE_CXX_STANDARD 11)
 

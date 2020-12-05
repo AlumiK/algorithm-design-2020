@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.17)
-project(lab07ex1_MinimizeTotalLateness)
+project(07.1_minimize_maximum_lateness)
 
 set(CMAKE_CXX_STANDARD 11)
 

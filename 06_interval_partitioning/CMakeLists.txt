@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.17)
-project(lab07_MinimizeMaximumLateness)
+project(06_interval_partitioning)
 
 set(CMAKE_CXX_STANDARD 11)
 
